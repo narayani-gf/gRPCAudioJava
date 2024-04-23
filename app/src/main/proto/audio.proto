@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option java_package = "com.proto.audio";
+
+message DownloadFileRequest {
+    string nombre = 1;
+}
+
+message DataChunkResponse {
+    bytes data = 1;
+}
+
+service AudioService {
+    rpc downloadAudio (DownloadFileRequest) returns (stream DataChunkResponse);
+}
